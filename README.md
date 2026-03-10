@@ -4,6 +4,10 @@
 
 ---
 
+EN: For maximum safety, it is recommended to run the flasher from a dedicated USB drive. This ensures that the target disk is not locked by the tool itself and prevents data corruption if the process is interrupted.
+
+RU: Для максимальной безопасности рекомендуется запускать флешер с отдельной USB-флешки. Это гарантирует, что целевой диск не будет занят самой программой, и предотвратит порчу данных при внезапной остановке записи.
+
 ## ⚠️ WARNING / ПРЕДУПРЕЖДЕНИЕ
 
 > 🚧 **This addon is in active development.**
