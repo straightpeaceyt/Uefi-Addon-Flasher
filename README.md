@@ -72,14 +72,30 @@ The flasher **cannot run on its own**. It needs a UEFI Shell environment to work
 5. Boot from the USB drive via your motherboard's boot menu (`F2` / `Del` / `F12`)
 6. You will land in the UEFI Shell automatically
 
+### NTFS Support (optional)
+
+By default the flasher works on FAT32 drives. To enable reading ISO files from NTFS drives:
+
+1. Download `ntfs_x64.efi` from https://github.com/pbatard/ntfs-3g
+2. Place it next to `Flasher.efi`
+3. In UEFI Shell run:
+   ```
+   load ntfs_x64.efi
+   map -r
+   ```
+4. Now Flasher can find ISO files on NTFS drives
+
 ### Usage
 
 ```
-flasher search                 - find ISO files on all volumes
-flasher disk                   - list available disks
-flasher select N               - select disk by number
-flasher iso fs0:\file.iso      - select ISO file
-flasher start                  - write ISO to selected disk
+flasher search           - find ISO files on all volumes
+flasher disk             - list available disks
+flasher select N         - select disk by number
+flasher iso fs0:\file.iso - select ISO file
+flasher start            - write ISO to selected disk
+flasher check N          - check disk health
+flasher wipe N           - wipe disk with zeros
+flasher format N fat32   - prepare disk for FAT32
 ```
 
 **Example workflow:**
@@ -91,9 +107,24 @@ flasher iso fs1:\windows.iso
 flasher start
 ```
 
+### What's new in v1.2
+
+- `flasher check N` — disk diagnostics, checks for read errors
+- `flasher wipe N` — wipes entire disk with zeros
+- `flasher format N fat32` — clears MBR and partition table
+- Protection: blocks any operation if UEFI Shell files are detected on the target disk
+- NTFS support via external driver
+
 ### Download
 
 Ready-to-use `Flasher.efi` available in [Releases](../../releases).
+
+### 🐛 Bug Reports
+
+If you found a bug in the addon, please report it to **straightpeaceyt@gmail.com**
+Describe what the bug is.
+As a reward, you will be added to the **Flasher Beta Team** —
+your name or nickname will be displayed in the project.
 
 ---
 
@@ -143,14 +174,30 @@ Ready-to-use `Flasher.efi` available in [Releases](../../releases).
 5. Загрузись с флешки через меню загрузки материнской платы (`F2` / `Del` / `F12`)
 6. Ты автоматически попадёшь в UEFI Shell
 
+### Поддержка NTFS (опционально)
+
+По умолчанию флешер работает с FAT32 дисками. Чтобы читать ISO файлы с NTFS:
+
+1. Скачай `ntfs_x64.efi` с https://github.com/pbatard/ntfs-3g
+2. Положи рядом с `Flasher.efi`
+3. В UEFI Shell выполни:
+   ```
+   load ntfs_x64.efi
+   map -r
+   ```
+4. Теперь Flasher видит ISO файлы на NTFS дисках
+
 ### Использование
 
 ```
-flasher search                 - найти ISO файлы на всех томах
-flasher disk                   - список доступных дисков
-flasher select N               - выбрать диск по номеру
-flasher iso fs0:\file.iso      - выбрать ISO файл
-flasher start                  - записать ISO на выбранный диск
+flasher search            - найти ISO файлы на всех томах
+flasher disk              - список доступных дисков
+flasher select N          - выбрать диск по номеру
+flasher iso fs0:\file.iso - выбрать ISO файл
+flasher start             - записать ISO на выбранный диск
+flasher check N           - проверка диска на ошибки
+flasher wipe N            - затереть диск нулями
+flasher format N fat32    - подготовить диск под FAT32
 ```
 
 **Пример:**
@@ -162,10 +209,26 @@ flasher iso fs1:\windows.iso
 flasher start
 ```
 
+### Что нового в v1.2
+
+- `flasher check N` — диагностика диска, проверка на ошибки чтения
+- `flasher wipe N` — затирание диска нулями
+- `flasher format N fat32` — очистка MBR и таблицы разделов
+- Защита: блокировка операций если на диске обнаружены файлы UEFI Shell
+- Поддержка NTFS через внешний драйвер
+
 ### Скачать
 
 Готовый `Flasher.efi` доступен в разделе [Releases](../../releases).
 
+### 🐛 Сообщить об ошибке
+
+Если нашёл баг — напиши на **straightpeaceyt@gmail.com**
+Опиши что за ошибка.
+В награду ты будешь добавлен в **Flasher Beta Team** —
+твоё имя или псевдоним будет отображаться в проекте.
+
 ---
 
 *Created as a last-resort recovery tool for situations where no OS is available.*
+*Copyright (c) 2025 StraightPeaceYT and 01AiR_PrIcH — MIT License*
