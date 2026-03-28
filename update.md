@@ -1,4 +1,15 @@
-???
+🔧 v1.3 — В разработке
+Всем привет! Я заметил что в прошлых версиях 1.1 и 1.2 нельзя было нормально выбрать ISO файл. В обновлении 1.3 мы исправили эту проблему.
+Дата релиза уточняется. Следите за обновлениями!
+
+Дата: 28.03.2026
+
+🔧 v1.3 — In Development
+
+Hello everyone! I noticed that in previous versions 1.1 and 1.2, it was impossible to properly select an ISO file. In the 1.3 update, we have fixed this issue.
+The release date is still TBD. Stay tuned for updates!
+
+Date: 28.03.26
 
 --------
 
